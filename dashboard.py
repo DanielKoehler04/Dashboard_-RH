@@ -5,13 +5,20 @@ import base64
 import datetime as dt
 import locale
 
-try:
-    locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
-except locale.Error:
-    try:
-        locale.setlocale(locale.LC_TIME, 'Portuguese_Brazil')
-    except locale.Error:
-        print("Locale 'pt_BR' não encontrado, usando o padrão do sistema.")
+meses_pt = {
+    "january": "janeiro",
+    "february": "fevereiro",
+    "march": "março",
+    "april": "abril",
+    "may": "maio",
+    "june": "junho",
+    "july": "julho",
+    "august": "agosto",
+    "september": "setembro",
+    "october": "outubro",
+    "november": "novembro",
+    "december": "dezembro"
+}
 
 st.set_page_config(page_title="Dashboard RH", layout="wide")
 
@@ -26,10 +33,10 @@ data_90dias = dt.datetime.today() - dt.timedelta(days=90)
 data_atual = dt.datetime.now()
 
 mes_atual = data_atual.strftime("%B")
-mes_atual_port = mes_atual
+mes_atual_port = meses_pt[mes_atual]
 
 mes_anterior = data_30dias.strftime('%B')
-mes_anterior_port = mes_anterior
+mes_anterior_port = meses_pt[mes_anterior]
 
 anterior = mes_anterior + str(data_30dias.year)
 atual = mes_atual + str(data_atual.year)
