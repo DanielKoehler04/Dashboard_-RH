@@ -26,8 +26,10 @@ data_90dias = dt.datetime.today() - dt.timedelta(days=90)
 data_atual = dt.datetime.now()
 
 mes_atual = data_atual.strftime("%B")
+mes_atual_port = mes_atual
 
 mes_anterior = data_30dias.strftime('%B')
+mes_anterior_port = mes_anterior
 
 anterior = mes_anterior + str(data_30dias.year)
 atual = mes_atual + str(data_atual.year)
@@ -52,7 +54,7 @@ with col2:
     filtro_sup = st.selectbox("Supervisão:", supervisao)
     
 with col3:
-    periodos = [mes_anterior.upper(), mes_atual.upper()]
+    periodos = [mes_anterior_port.upper(), mes_atual_port.upper()]
   
     filtro_periodo = st.selectbox("Período:", periodos)
 
