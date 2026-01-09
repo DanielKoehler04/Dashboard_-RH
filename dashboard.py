@@ -168,6 +168,7 @@ st.markdown("""
             grid-template-rows: repeat(1, 1fr);
             gap: 10px;
             margin-bottom: 40px;
+            overflow: scroll;
         }
         .row2{
             display: grid;
